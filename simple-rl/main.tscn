@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://bd61iijh867lo"]
+
+[ext_resource type="Script" uid="uid://l0qonk2kq20n" path="res://character_body_3d.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b4ymik4nn7fkk" path="res://ai_controller_3d.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://6675f8km1767" path="res://addons/godot_rl_agents/sync.gd" id="3_h2yge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+size = Vector3(1, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lquwl"]
+size = Vector3(1, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4c57u"]
+data = PackedVector3Array(-5, 0.25, 5, 5, 0.25, 5, -5, -0.25, 5, 5, 0.25, 5, 5, -0.25, 5, -5, -0.25, 5, 5, 0.25, -5, -5, 0.25, -5, 5, -0.25, -5, -5, 0.25, -5, -5, -0.25, -5, 5, -0.25, -5, 5, 0.25, 5, 5, 0.25, -5, 5, -0.25, 5, 5, 0.25, -5, 5, -0.25, -5, 5, -0.25, 5, -5, 0.25, -5, -5, 0.25, 5, -5, -0.25, -5, -5, 0.25, 5, -5, -0.25, 5, -5, -0.25, -5, 5, 0.25, 5, -5, 0.25, 5, 5, 0.25, -5, -5, 0.25, 5, -5, 0.25, -5, 5, 0.25, -5, -5, -0.25, 5, 5, -0.25, 5, -5, -0.25, -5, 5, -0.25, 5, 5, -0.25, -5, -5, -0.25, -5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg77c"]
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ycdy4"]
+material = SubResource("StandardMaterial3D_dg77c")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+emission_enabled = true
+emission = Color(1, 0.39215687, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
+
+[node name="Main" type="Node3D" unique_id=702107684]
+
+[node name="Wall" type="Area3D" parent="." unique_id=996057317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70936584, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=1734095003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.4948044)
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall" unique_id=537082345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.4948044)
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Wall" unique_id=1260102571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5156193, 0, 0)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Wall" unique_id=1005962651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5364323, 0, 0)
+shape = SubResource("BoxShape3D_lquwl")
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=2081485071]
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=982397692]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=968382855]
+shape = SubResource("ConcavePolygonShape3D_4c57u")
+
+[node name="Target" type="Area3D" parent="." unique_id=981843321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0868397, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target" unique_id=1425992419]
+shape = SubResource("BoxShape3D_efxa6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=393723838]
+mesh = SubResource("BoxMesh_ycdy4")
+
+[node name="Cube" type="CharacterBody3D" parent="." unique_id=1202048787 node_paths=PackedStringArray("ai_controller_3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4812489, 0.8514986, 0)
+script = ExtResource("1_ig7tw")
+ai_controller_3d = NodePath("AIController3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=1129953452]
+mesh = SubResource("BoxMesh_0xm2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube" unique_id=420193574]
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="AIController3D" type="Node3D" parent="Cube" unique_id=2069526990 node_paths=PackedStringArray("cube", "target")]
+script = ExtResource("2_0xm2m")
+cube = NodePath("..")
+target = NodePath("../../Target")
+metadata/_custom_type_script = "uid://cp6tdgqut4pcx"
+
+[node name="Sync" type="Node" parent="." unique_id=88654621]
+script = ExtResource("3_h2yge")
+control_mode = 2
+action_repeat = 10
+speed_up = 8.0
+onnx_model_path = "model.onnx"
+metadata/_custom_type_script = "uid://6675f8km1767"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1687245224]
+transform = Transform3D(0.99991393, 0.0067685754, 0.011241651, -0.008826453, 0.9808599, 0.19451502, -0.009709895, -0.1945975, 0.98083514, -0.06633949, 3.6533744, 8.5504465)
+
+[connection signal="body_entered" from="Wall" to="Cube" method="_on_wall_body_entered"]
+[connection signal="body_entered" from="Target" to="Cube" method="_on_target_body_entered"]

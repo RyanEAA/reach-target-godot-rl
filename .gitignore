@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+logs/
+*.zip
+*.onnx.data
+.DS_Store
+.import/
+.godot/
+mono/temp/
+mono/obj/
+mono/builds/
