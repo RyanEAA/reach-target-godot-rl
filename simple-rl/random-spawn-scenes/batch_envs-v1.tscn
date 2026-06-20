@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b33dj85fvdmua"]
+
+[ext_resource type="PackedScene" uid="uid://bca11w44ci2xs" path="res://random-spawn-scenes/single-train-v1.tscn" id="1_jk17w"]
+[ext_resource type="Script" uid="uid://6675f8km1767" path="res://addons/godot_rl_agents/sync.gd" id="2_tjduo"]
+
+[node name="BatchEnvs" type="Node" unique_id=425045401]
+
+[node name="Main9" parent="." unique_id=702107684 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4949913, 0, 12.506589)
+
+[node name="Main10" parent="." unique_id=339902349 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.85252, 0, 12.506589)
+
+[node name="Main11" parent="." unique_id=2062832314 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.115185, 0, 12.506589)
+
+[node name="Main12" parent="." unique_id=1682333651 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.757657, 0, 12.506589)
+
+[node name="Main13" parent="." unique_id=1287088063 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5067673, 0, 24.342215)
+
+[node name="Main14" parent="." unique_id=1913145775 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.864296, 0, 24.342215)
+
+[node name="Main15" parent="." unique_id=1004726157 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.103409, 0, 24.342215)
+
+[node name="Main16" parent="." unique_id=1540182987 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.745881, 0, 24.342215)
+
+[node name="Main5" parent="." unique_id=1010223115 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5009995, 0, -11.835626)
+
+[node name="Main6" parent="." unique_id=1738864003 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.858528, 0, -11.835626)
+
+[node name="Main7" parent="." unique_id=2086568812 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.109177, 0, -11.835626)
+
+[node name="Main8" parent="." unique_id=1651294431 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.751649, 0, -11.835626)
+
+[node name="Main3" parent="." unique_id=2029088539 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5127764, 0, 0)
+
+[node name="Main4" parent="." unique_id=1743038859 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.870304, 0, 0)
+
+[node name="Main2" parent="." unique_id=1795323719 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0974, 0, 0)
+
+[node name="Main" parent="." unique_id=525991145 instance=ExtResource("1_jk17w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.739873, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=126224028]
+transform = Transform3D(0.022276249, 0.15334287, -0.98792195, 0.009148296, 0.9880945, 0.15357594, 0.9997101, -0.012458896, 0.020608217, -42.330086, 11.81271, 0)
+
+[node name="Sync" type="Node" parent="." unique_id=1798405291]
+script = ExtResource("2_tjduo")
+action_repeat = 10
+speed_up = 8.0
+onnx_model_path = "model.onnx"
+metadata/_custom_type_script = "uid://6675f8km1767"

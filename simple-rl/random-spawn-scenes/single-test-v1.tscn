@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bd61iijh867lo"]
+[gd_scene format=3 uid="uid://dgly4mo2eykiu"]
 
-[ext_resource type="Script" uid="uid://l0qonk2kq20n" path="res://character_body_3d.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://b4ymik4nn7fkk" path="res://ai_controller_3d.gd" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://6675f8km1767" path="res://addons/godot_rl_agents/sync.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://v0j0dx4n4klo" path="res://random-spawn-scenes/character_body_3d.gd" id="1_hfvtl"]
+[ext_resource type="Script" uid="uid://dyuyjsjr53e6x" path="res://random-spawn-scenes/ai_controller_3d.gd" id="2_qm08a"]
+[ext_resource type="Script" uid="uid://6675f8km1767" path="res://addons/godot_rl_agents/sync.gd" id="3_aoohl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
 size = Vector3(10, 1, 1)
@@ -78,10 +78,11 @@ shape = SubResource("BoxShape3D_efxa6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=393723838]
 mesh = SubResource("BoxMesh_ycdy4")
 
-[node name="Cube" type="CharacterBody3D" parent="." unique_id=1202048787 node_paths=PackedStringArray("ai_controller_3d")]
+[node name="Cube" type="CharacterBody3D" parent="." unique_id=1202048787 node_paths=PackedStringArray("ai_controller_3d", "floor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4812489, 0.8514986, 0)
-script = ExtResource("1_ig7tw")
+script = ExtResource("1_hfvtl")
 ai_controller_3d = NodePath("AIController3D")
+floor = NodePath("../Floor")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=1129953452]
 mesh = SubResource("BoxMesh_0xm2m")
@@ -90,21 +91,19 @@ mesh = SubResource("BoxMesh_0xm2m")
 shape = SubResource("BoxShape3D_7mycd")
 
 [node name="AIController3D" type="Node3D" parent="Cube" unique_id=2069526990 node_paths=PackedStringArray("cube", "target")]
-script = ExtResource("2_0xm2m")
+script = ExtResource("2_qm08a")
 cube = NodePath("..")
 target = NodePath("../../Target")
 metadata/_custom_type_script = "uid://cp6tdgqut4pcx"
 
-[node name="Sync" type="Node" parent="." unique_id=88654621]
-script = ExtResource("3_h2yge")
+[node name="Camera3D" type="Camera3D" parent="." unique_id=334357959]
+transform = Transform3D(-0.008940143, 0.5081133, -0.86124384, 0.012334844, 0.86126876, 0.508, 0.99988395, -0.006081716, -0.013967363, -6.866925, 4.4696946, -0.35446882)
+
+[node name="Sync" type="Node" parent="." unique_id=624687433]
+script = ExtResource("3_aoohl")
 control_mode = 2
-action_repeat = 10
-speed_up = 8.0
 onnx_model_path = "model.onnx"
 metadata/_custom_type_script = "uid://6675f8km1767"
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1687245224]
-transform = Transform3D(0.99991393, 0.0067685754, 0.011241651, -0.008826453, 0.9808599, 0.19451502, -0.009709895, -0.1945975, 0.98083514, -0.06633949, 3.6533744, 8.5504465)
 
 [connection signal="body_entered" from="Wall" to="Cube" method="_on_wall_body_entered"]
 [connection signal="body_entered" from="Target" to="Cube" method="_on_target_body_entered"]

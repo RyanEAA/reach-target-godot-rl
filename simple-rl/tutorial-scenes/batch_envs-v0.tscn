@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://x5lflh6j88r7"]
 
-[ext_resource type="PackedScene" uid="uid://bd61iijh867lo" path="res://main.tscn" id="1_wdvcg"]
+[ext_resource type="PackedScene" uid="uid://bd61iijh867lo" path="res://tutorial-scenes/single-train-v0.tscn" id="1_wdvcg"]
 [ext_resource type="Script" uid="uid://6675f8km1767" path="res://addons/godot_rl_agents/sync.gd" id="2_pk8dh"]
 
 [node name="BatchEnvs" type="Node" unique_id=425045401]
