@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://vvo732jghum8"]
+
+[ext_resource type="PackedScene" uid="uid://cfrapldxvjrmk" path="res://ran-spawn-target-scenes/single-train-v2.tscn" id="1_nsak5"]
+[ext_resource type="Script" uid="uid://6675f8km1767" path="res://addons/godot_rl_agents/sync.gd" id="2_tyrb6"]
+
+[node name="Node3D" type="Node3D" unique_id=398588730]
+
+[node name="v2-train9" parent="." unique_id=1183683583 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5173798, 0, -19.519978)
+
+[node name="v2-train10" parent="." unique_id=1404980771 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5173798, 0, -6.475601)
+
+[node name="v2-train11" parent="." unique_id=48913972 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5173798, 0, 6.0252705)
+
+[node name="v2-train12" parent="." unique_id=2015821832 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5173798, 0, 19.069649)
+
+[node name="v2-train13" parent="." unique_id=1198783463 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.672897, 0, -19.504448)
+
+[node name="v2-train14" parent="." unique_id=880920265 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.672897, 0, -6.4600677)
+
+[node name="v2-train15" parent="." unique_id=830992990 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.672897, 0, 6.040802)
+
+[node name="v2-train16" parent="." unique_id=32781488 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.672897, 0, 19.08518)
+
+[node name="v2-train5" parent="." unique_id=702107684 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.336075, 0, -19.380222)
+
+[node name="v2-train6" parent="." unique_id=1109600794 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.336075, 0, -6.335846)
+
+[node name="v2-train7" parent="." unique_id=771742877 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.336075, 0, 6.1650257)
+
+[node name="v2-train8" parent="." unique_id=549761477 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.336075, 0, 19.209404)
+
+[node name="v2-train3" parent="." unique_id=976777978 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1805573, 0, -19.36469)
+
+[node name="v2-train4" parent="." unique_id=59730111 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1805573, 0, -6.3203125)
+
+[node name="v2-train" parent="." unique_id=1510525370 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1805573, 0, 6.1805573)
+
+[node name="v2-train2" parent="." unique_id=1160328951 instance=ExtResource("1_nsak5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1805573, 0, 19.224936)
+
+[node name="Sync" type="Node" parent="." unique_id=1040154000]
+script = ExtResource("2_tyrb6")
+speed_up = 8.0
+metadata/_custom_type_script = "uid://6675f8km1767"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1100731336]
+transform = Transform3D(-0.0103200115, 0.31352675, -0.9495233, 0.01225684, 0.94954216, 0.3133998, 0.9998717, -0.008403865, -0.013642134, -39.845646, 11.393311, -2.0582924)

@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dgly4mo2eykiu"]
+[gd_scene format=3 uid="uid://cfrapldxvjrmk"]
 
-[ext_resource type="Script" uid="uid://v0j0dx4n4klo" path="res://random-spawn-scenes/character_body_3d.gd" id="1_hfvtl"]
-[ext_resource type="Script" uid="uid://dyuyjsjr53e6x" path="res://random-spawn-scenes/ai_controller_3d.gd" id="2_qm08a"]
-[ext_resource type="Script" uid="uid://6675f8km1767" path="res://addons/godot_rl_agents/sync.gd" id="3_aoohl"]
+[ext_resource type="Script" uid="uid://muxlgfip6u08" path="res://ran-spawn-target-scenes/single_train_v_2.gd" id="1_gcxc1"]
+[ext_resource type="Script" uid="uid://no152jnay15p" path="res://ran-spawn-target-scenes/character_body_3d.gd" id="1_pamsf"]
+[ext_resource type="Script" uid="uid://x6wsaj8xdqxd" path="res://ran-spawn-target-scenes/ai_controller_3d.gd" id="2_bmjj8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
 size = Vector3(10, 1, 1)
@@ -40,7 +40,10 @@ material = SubResource("StandardMaterial3D_ig7tw")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
 
-[node name="Main" type="Node3D" unique_id=702107684]
+[node name="v2-train" type="Node3D" unique_id=702107684 node_paths=PackedStringArray("agent_spawn_area", "target_spawn_area")]
+script = ExtResource("1_gcxc1")
+agent_spawn_area = NodePath("")
+target_spawn_area = NodePath("")
 
 [node name="Wall" type="Area3D" parent="." unique_id=996057317]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70936584, 0)
@@ -78,11 +81,11 @@ shape = SubResource("BoxShape3D_efxa6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=393723838]
 mesh = SubResource("BoxMesh_ycdy4")
 
-[node name="Cube" type="CharacterBody3D" parent="." unique_id=1202048787 node_paths=PackedStringArray("ai_controller_3d", "floor")]
+[node name="Cube" type="CharacterBody3D" parent="." unique_id=1202048787 node_paths=PackedStringArray("ai_controller_3d", "target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4812489, 0.8514986, 0)
-script = ExtResource("1_hfvtl")
+script = ExtResource("1_pamsf")
 ai_controller_3d = NodePath("AIController3D")
-floor = NodePath("../Floor")
+target = NodePath("../Target")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=1129953452]
 mesh = SubResource("BoxMesh_0xm2m")
@@ -91,21 +94,22 @@ mesh = SubResource("BoxMesh_0xm2m")
 shape = SubResource("BoxShape3D_7mycd")
 
 [node name="AIController3D" type="Node3D" parent="Cube" unique_id=2069526990 node_paths=PackedStringArray("cube", "target")]
-script = ExtResource("2_qm08a")
+script = ExtResource("2_bmjj8")
 cube = NodePath("..")
 target = NodePath("../../Target")
 metadata/_custom_type_script = "uid://cp6tdgqut4pcx"
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=334357959]
-transform = Transform3D(-0.008940143, 0.5081133, -0.86124384, 0.012334844, 0.86126876, 0.508, 0.99988395, -0.006081716, -0.013967363, -6.866925, 4.4696946, -0.35446882)
+[node name="AgentPoint2" type="Node3D" parent="." unique_id=83054568]
+transform = Transform3D(1, 0, 0, 0, 1.7373819, 0, 0, 0, 1, 4.1842785, 0.38776922, -1.4183502)
 
-[node name="Sync" type="Node" parent="." unique_id=624687433]
-script = ExtResource("3_aoohl")
-control_mode = 2
-onnx_model_path = "model.onnx"
-metadata/_custom_type_script = "uid://6675f8km1767"
+[node name="AgentPoint1" type="Node3D" parent="." unique_id=817205718]
+transform = Transform3D(1, 0, 0, 0, 1.7373819, 0, 0, 0, 1, -4.3607025, 0.98687744, -4.286061)
 
-[node name="Camera3D2" type="Camera3D" parent="." unique_id=1308612368]
+[node name="TargetPoint1" type="Node3D" parent="." unique_id=883117256]
+transform = Transform3D(1, 0, 0, 0, 1.7373819, 0, 0, 0, 1, -4.022377, 0.98687744, 4.1083345)
+
+[node name="TargetPoint2" type="Node3D" parent="." unique_id=1528746857]
+transform = Transform3D(1, 0, 0, 0, 1.7373819, 0, 0, 0, 1, 4.061981, 0.38776922, 3.9595537)
 
 [connection signal="body_entered" from="Wall" to="Cube" method="_on_wall_body_entered"]
 [connection signal="body_entered" from="Target" to="Cube" method="_on_target_body_entered"]

@@ -58,6 +58,7 @@ transform = Transform3D(0.022276249, 0.15334287, -0.98792195, 0.009148296, 0.988
 
 [node name="Sync" type="Node" parent="." unique_id=1798405291]
 script = ExtResource("2_tjduo")
+control_mode = 2
 action_repeat = 10
 speed_up = 8.0
 onnx_model_path = "model.onnx"
