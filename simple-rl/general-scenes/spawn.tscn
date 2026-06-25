@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dik6vj4pc67hn"]
+
+[node name="Spawn" type="Node3D" unique_id=262339871]
+transform = Transform3D(1, 0, 0, 0, 1.7373819, 0, 0, 0, 1, 0, 0, 0)
+metadata/spawnee = null
+
+[node name="Point1" type="Node3D" parent="." unique_id=827352451]
+transform = Transform3D(1, 0, 0, 0, 1.7373819, 0, 0, 0, 1, 4.1842785, 0.38776922, -1.4183502)
+
+[node name="Point2" type="Node3D" parent="." unique_id=677404579]
+transform = Transform3D(1, 0, 0, 0, 1.7373819, 0, 0, 0, 1, -4.3607025, 0.98687744, -4.286061)

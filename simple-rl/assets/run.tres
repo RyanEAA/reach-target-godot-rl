@@ -1,0 +1,16 @@
+[gd_resource type="AnimationLibrary" format=3 uid="uid://bvmciaccyjrf0"]
+
+[ext_resource type="Animation" uid="uid://c8ilvwso1iwuc" path="res://assets/Animations/1 type_Idle Breathing.res" id="1_mel4b"]
+[ext_resource type="Animation" uid="uid://whfvhh80dpj1" path="res://assets/Animations/1 type_Run Lean Left.res" id="1_qx3mt"]
+[ext_resource type="Animation" uid="uid://61q7kxbwo0iq" path="res://assets/Animations/1 type_Run Lean Right.res" id="2_hdtb6"]
+[ext_resource type="Animation" uid="uid://l1qfk6ovdsgf" path="res://assets/Animations/1 type_Run Loop.res" id="3_mel4b"]
+[ext_resource type="Animation" uid="uid://beoo30oy76bma" path="res://assets/Animations/rest.res" id="5_p62dd"]
+
+[resource]
+_data = {
+&"1 type_Idle Breathing": ExtResource("1_mel4b"),
+&"1 type_Run Lean Left": ExtResource("1_qx3mt"),
+&"1 type_Run Lean Right": ExtResource("2_hdtb6"),
+&"1 type_Run Loop": ExtResource("3_mel4b"),
+&"rest": ExtResource("5_p62dd")
+}

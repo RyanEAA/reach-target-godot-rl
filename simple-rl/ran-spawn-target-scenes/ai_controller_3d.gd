@@ -2,6 +2,7 @@ extends AIController3D
 @export var cube: CharacterBody3D
 @export var target: Area3D
 
+
 var move = Vector2.ZERO
 
 func get_obs() -> Dictionary:

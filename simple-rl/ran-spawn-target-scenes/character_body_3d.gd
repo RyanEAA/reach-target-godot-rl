@@ -7,11 +7,12 @@ var spawn_y = 0.851
 @export var ai_controller_3d: Node3D
 @export var target: Area3D
 
+
 @onready var agent_point_2: Node3D = $"../AgentPoint2"
 @onready var agent_point_1: Node3D = $"../AgentPoint1"
 
-@onready var target_point_1: Node3D = $"../TargetPoint1"
-@onready var target_point_2: Node3D = $"../TargetPoint2"
+@export var target_point_1: Node3D
+@export var target_point_2: Node3D
 
 @export var max_episode_steps: int = 120*60
 @export var timeout_penalty: float = 0.25

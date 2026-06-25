@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dgbabkakw1t8x"]
+
+[ext_resource type="PackedScene" uid="uid://bt3o8su1y0mdc" path="res://general-scenes/wall.tscn" id="1_bd1r3"]
+[ext_resource type="PackedScene" uid="uid://dqm0yvhlu7etf" path="res://dog-test/dog.tscn" id="1_s300l"]
+[ext_resource type="PackedScene" uid="uid://djjjufo6sgg7k" path="res://general-scenes/target.tscn" id="1_sn5kx"]
+[ext_resource type="PackedScene" uid="uid://bxtgajk3irg4f" path="res://general-scenes/floor.tscn" id="2_ait4y"]
+[ext_resource type="PackedScene" uid="uid://dik6vj4pc67hn" path="res://general-scenes/spawn.tscn" id="2_sn5kx"]
+[ext_resource type="Script" uid="uid://clxfwg6pnb4ck" path="res://dog-test/dog.gd" id="5_iisum"]
+[ext_resource type="Script" uid="uid://6675f8km1767" path="res://addons/godot_rl_agents/sync.gd" id="7_o3wy5"]
+
+[node name="Main" type="Node3D" unique_id=816484244]
+
+[node name="TargetSpawn" parent="." unique_id=262339871 instance=ExtResource("2_sn5kx")]
+
+[node name="Target" parent="." unique_id=2073084944 instance=ExtResource("1_sn5kx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.019828, 0, 0)
+
+[node name="Wall" parent="." unique_id=872242520 instance=ExtResource("1_bd1r3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5902839, 0)
+
+[node name="DogSpawn" parent="." unique_id=829793288 instance=ExtResource("2_sn5kx")]
+transform = Transform3D(1, 0, 0, 0, 1.7373819, 0, 0, 0, 1, 0, 0, 4.25035)
+
+[node name="Dog" parent="." unique_id=552387275 node_paths=PackedStringArray("target_spawn", "dog_spawn") instance=ExtResource("1_s300l")]
+transform = Transform3D(1, 0, 0, 0, 1.8312466, 0, 0, 0, 1.8843794, -3.5990276, 0.33389044, 0)
+script = ExtResource("5_iisum")
+target_spawn = NodePath("../TargetSpawn")
+dog_spawn = NodePath("../DogSpawn")
+
+[node name="Floor" parent="." unique_id=1286023272 instance=ExtResource("2_ait4y")]
+
+[node name="Sync" type="Node" parent="." unique_id=1367048494]
+script = ExtResource("7_o3wy5")
+metadata/_custom_type_script = "uid://6675f8km1767"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1412263409]
+transform = Transform3D(0.010583134, 0.15995923, -0.98706686, -0.0017149524, 0.9871236, 0.15995003, 0.99994254, 0, 0.010721184, -5.766913, 1.9831889, -0.21099567)

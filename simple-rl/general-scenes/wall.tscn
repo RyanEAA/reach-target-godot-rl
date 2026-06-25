@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bt3o8su1y0mdc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+size = Vector3(1, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lquwl"]
+size = Vector3(1, 1, 10)
+
+[node name="Wall" type="Area3D" unique_id=872242520]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=868203596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.4948044)
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=486982137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.4948044)
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=749640317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5156193, 0, 0)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=442238637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5364323, 0, 0)
+shape = SubResource("BoxShape3D_lquwl")
